@@ -30,6 +30,18 @@
 // output = findMatryoshka(matryoshka, 8);
 // console.log(output); // --> false
 
+// my solution 08/24
+function findMatryoshka(matryoshka, size) {
+    if (matryoshka.size === size) {
+        return true;
+    } else if (matryoshka.matryoshka) {
+        return findMatryoshka(matryoshka.matryoshka, size);
+    }
+
+    return false;
+}
+
+
 // solution
 function findMatryoshka(matryoshka, size) {
     if (matryoshka.size === size) {
