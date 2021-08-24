@@ -30,6 +30,15 @@ function take(num, arr) {
     return take(num, arr);
 }
 
+// 8/24 my solution - 오랜만에 다시 풀었는데 소름돋게 똑같이 품...
+function take(num, arr) {
+    if (arr.length === 0 || arr.length === num || arr.length < num) {
+        return arr;
+    }
+    arr.pop();
+    return take(num, arr);
+}
+
 // reference
 function take(num, arr) {
     // if (num >= arr.length) {
