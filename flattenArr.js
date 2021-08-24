@@ -23,6 +23,20 @@
 // output = flattenArr([[2, [[3]]], 4, [[[5]]]);
 // console.log(output); // --> [2, 3, 4, 5]
 
+// my solution
+function flattenArr(arr) {
+    if (arr.length === 0) {
+        return [];
+    }
+
+    const [head, ...tail] = arr;
+    if (Array.isArray(head)) {
+        return flattenArr([...head, ...tail])
+    } else {
+        return [head].concat(flattenArr(tail))
+    }
+}
+
 function flattenArr(arr) {
     // base case
     if (arr.length === 0) {

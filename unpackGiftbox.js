@@ -45,6 +45,24 @@ function unpackGiftbox(giftBox, wish) {
     return false;
 }
 
+// solution 08/24
+function unpackGiftbox(giftBox, wish) {
+    if (giftBox.length === 0 || wish === '') {
+        return false;
+    }
+
+    for (let cur of giftBox) {
+        if (cur === wish) {
+            return true;
+        } else if (Array.isArray(cur)) {
+            let result = unpackGiftbox(cur, wish);
+            if (result) return true;
+        }
+    }
+
+    return false;
+}
+
 // 다른 풀이 방법 1
 // function unpackGiftbox(giftBox, wish) {
 //   // recursive case
