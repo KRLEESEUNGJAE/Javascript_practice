@@ -30,6 +30,24 @@ function fibonacci(num) {
     return fibonacci(num - 1) + fibonacci(num - 2);
 }
 
+// fibonacci O(N) solution : 저장소 이용 
+function fibonacci(n) {
+    // 메모리를 만들어서 이미 한번 해결한 인덱스는 저장해 둚(기본 인덱스 0, 1)
+    const memory = [0, 1];
+
+    // 메모리에 저장되어 있으면 꺼내서 리턴해주고, 없으면 저장해주는 함수를 생성
+    const servant = (n) => {
+        if (memory[n] !== undefined) {
+            return memory[n];
+        } else {
+            memory[n] = servant(n - 1) + servant(n - 2);
+            return memory[n];
+        }
+    }
+
+    return servant(n);
+}
+
 console.log(fibonacci(0));
 console.log(fibonacci(1));
 console.log(fibonacci(8));
