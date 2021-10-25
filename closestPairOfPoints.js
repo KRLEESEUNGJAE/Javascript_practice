@@ -2,20 +2,20 @@
 function calculateDistance(p1, p2) {
   const yDiff = p2[0] - p1[0];
   const xDiff = p2[1] - p1[1];
-  return Math.sqrt(Math.pow(yDiff, 2) + Math.pow(xDiff, 2));
+  const sqrt = Math.sqrt(Math.pow(yDiff, 2) + Math.pow(xDiff, 2));
+  return Math.round(sqrt * 100);
 }
 
 const closestPairOfPoints = function (points) {
   // Math.floor(calculateDistance([1, 3], [2, 2],) * 100)
-  let shortest = 0;
-  for (let i = 0; i < points.length - 2; i++) {
-    let temp = Math.floor(calculateDistance(points[i], points[i + 1]) * 100);
-    if (temp < shortest) {
-      shortest = temp;
+  let min = Number.MAX_SAFE_INTEGER;
+  for (let i = 0; i < points.length; i++) {
+    for (let j = i + 1; j < points.length; j++) {
+      let temp = calculateDistance(points[i], points[j]);
+      min = Math.min(min, temp);
     }
   }
-
-  return shortest;
+  return min;
 };
 
 console.log(
