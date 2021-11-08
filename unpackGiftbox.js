@@ -28,22 +28,22 @@
 // console.log(output); // --> true
 
 // solution
-function unpackGiftbox(giftBox, wish) {
-    // recursive case
-    for (let i = 0; i < giftBox.length; i++) {
-        if (giftBox[i] === wish) {
-            return true;
-        } else if (Array.isArray(giftBox[i])) {
-            const result = unpackGiftbox(giftBox[i], wish);
-            if (result === true) {
-                return true;
-            }
-        }
-    }
-
-    // base case
-    return false;
-}
+// function unpackGiftbox(giftBox, wish) {
+//     // recursive case
+//     for (let i = 0; i < giftBox.length; i++) {
+//         if (giftBox[i] === wish) {
+//             return true;
+//         } else if (Array.isArray(giftBox[i])) {
+//             const result = unpackGiftbox(giftBox[i], wish);
+//             if (result === true) {
+//                 return true;
+//             }
+//         }
+//     }
+//
+//     // base case
+//     return false;
+// }
 
 // solution 08/24
 function unpackGiftbox(giftBox, wish) {
